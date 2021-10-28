@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "vuelo.h"
+
+#include "biblioteca_utn.h"
+
+
+#ifndef FECHA_H_INCLUDED
+#define FECHA_H_INCLUDED
+
+typedef struct
+{
+    int dia;
+    int mes;
+    int anio;
+}eFecha;
+
+//eAlumno unAlumno; //esta struct tiene agregada la struc fecha
+//validarFechas(&unAlumno);
+//int validarFechas(eVuelo* vecConFecha);
+
+#endif // FECHA_H_INCLUDED

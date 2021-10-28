@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+//#include "fecha.h"
+#include "avion.h"
+#include "aerolinea.h"
+#include "tipo.h"
+#include "inputs.h"
+#include "destino.h"
+#include "biblioteca_utn.h"
+#include "fecha.h"
+
+#define VACIO 1
+#define LLENO 0
+
+#ifndef VUELO_H_INCLUDED
+#define VUELO_H_INCLUDED
+
+typedef struct
+{
+    int id;
+    int idAvion;
+    int idDestino;
+    eFecha fecha;
+    int isEmpty;
+} eVuelo;
+
+int iniciarVuelos(eVuelo vuelos[], int tamV);
+int buscarLibreVuelos(eVuelo vuelos[], int tamV);
+int altaVuelo(eVuelo vuelos[], int tamV, eAvion aviones[], int tamAvi,eDestino destinos[], int tamD, eAerolinea aerolineas[], int tamA,eTipo tipos[], int tamT, int* pId);
+int mostrarVuelos(eVuelo vuelos[], int tamV, eAvion aviones[], int tamAvi, eDestino destinos[], int tamD, eAerolinea aerolineas[], int tamA);
+void mostrarVuelo(eVuelo unVuelo, eAvion aviones[], int tamAvi, eDestino destinos[], int tamD, eAerolinea aerolineas[], int tamA);
+
+#endif // VUELO_H_INCLUDED
