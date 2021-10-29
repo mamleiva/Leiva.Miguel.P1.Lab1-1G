@@ -8,6 +8,13 @@
 
 
 //####################################### MENUS ##############################################
+
+/** \brief MENU PRINCIPAL CON LAS OPCIONES.
+ *
+ * \return CHAR CON LA OPCION SELECCIONADA
+ *
+ */
+
 char menu()
 {
     char opcion;
@@ -16,8 +23,8 @@ char menu()
     printf("        *** Menu de Aviones ***          \n");
     printf("-------------------------------------------------\n");
     printf("   A- Alta de Avion\n");
-    printf("   B- Modificar Avion\n");
-    printf("   C- Baja de Avion\n");
+    printf("   B- Baja de Avion\n");
+    printf("   C- Modificar Avion\n");
     printf("   D- Listar los Aviones\n");
     printf("   E- Listar las Aerolineas\n");
     printf("   F- Listar los Tipos de Aviones\n");
@@ -37,7 +44,12 @@ char menu()
     return opcion;
 }
 
-//submenu  de modificacion
+/** \brief SUBMENU DE MODIFICACIONES
+ *
+ * \return CHAR CON LA OPCION SELECCIONADA.
+ *
+ */
+
 char menuModificacion(){
 	char opcion;
 

@@ -12,6 +12,8 @@ typedef struct
     char descripcion[20];
 }eAerolinea;
 
+
+// LA DOCUMENTACION DOXYGEN, ESTA EN LOS ARCHIVOS .C, PORQUE ASI RECOMENDABA EN EL DOCUMENTO DE FUNCIONES DEL CLASSROOM
 //funciones
 void mostrarAerolinea(eAerolinea unaAerolinea);
 int mostrarAerolineas(eAerolinea aerolineas[], int tam);

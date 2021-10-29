@@ -17,14 +17,13 @@
 
 int main()
 {
-    //int resultadohardcodeo;
     char seguir = 's';
     char confirmaSalir;
     int nextIdAvion= 3000;
     int nextIdVuelo = 2000;
     //int nextIdAerolinea = 1000;
-    int nextIdDestino = 20000;
-    int nextIdTipo = 5000;
+    //int nextIdDestino = 20000;
+    //int nextIdTipo = 5000;
 
     int contadorAviones = 0;
     int contadorVuelos = 0;
@@ -83,7 +82,7 @@ int main()
     {
         switch(menu())
         {
-        case 'A': //alta de aviones
+        case 'A': //ALTA DE AVIONES
             if(!altaAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, &nextIdAvion))
             {
                 printf("Hubo un problema al realizar el alta del avion\n");
@@ -94,26 +93,7 @@ int main()
                 contadorAviones++;
             }
             break;
-        case 'B': //modificacion
-            if (contadorAviones > 0)
-            {
-                system("cls");
-                if (!modificarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS))
-                {
-                    printf("No se pudo modificar el avion\n");
-                }
-                else
-                {
-                    printf("Modificacion exitosa!\n");
-                }
-            }
-            else
-            {
-                printf("Primero debe dar de alta algun avion\n");
-            }
-
-            break;
-        case 'C': //BAJA DE AVIONES
+        case 'B': //BAJA DE AVIONES
             if (contadorAviones > 0)
             {
                 system("cls");
@@ -131,6 +111,25 @@ int main()
             {
                 printf("Primero debe dar de alta algun avion\n");
             }
+            break;
+        case 'C': //MODIFICACION
+            if (contadorAviones > 0)
+            {
+                system("cls");
+                if (!modificarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS))
+                {
+                    printf("No se pudo modificar el avion\n");
+                }
+                else
+                {
+                    printf("Modificacion exitosa!\n");
+                }
+            }
+            else
+            {
+                printf("Primero debe dar de alta algun avion\n");
+            }
+
             break;
         case 'D':  //MOSTRAR AVIONES
             system("cls");

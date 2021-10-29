@@ -20,6 +20,8 @@
 #ifndef BIBLIOTECA_UTN_H_INCLUDED
 #define BIBLIOTECA_UTN_H_INCLUDED
 
+// LA DOCUMENTACION DOXYGEN, ESTA EN LOS ARCHIVOS .C, PORQUE ASI RECOMENDABA EN EL DOCUMENTO DE FUNCIONES DEL CLASSROOM
+
 //####################################### MENUS #######################################
 //int menu();
 //int subMenu();
