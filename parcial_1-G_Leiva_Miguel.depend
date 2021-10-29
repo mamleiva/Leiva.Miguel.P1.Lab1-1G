@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1635523281 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\main.c
+1635530635 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -54,7 +54,7 @@
 1635452883 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\fecha.h
 	"biblioteca_utn.h"
 
-1635514840 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.c
+1635536056 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.c
 	"avion.h"
 	"inputs.h"
 	"biblioteca_utn.h"

@@ -72,11 +72,10 @@ int main()
     {
         printf("Ocurrio un problema al inicializar vuelos");
     }
+
+    //HARDCODEO
     hardcodearAvion(aviones, TAM_AVIONES, 8, &nextIdAvion, &contadorAviones );
     hardcodearVuelos(vuelos, TAM_VUELOS, 8, &nextIdVuelo, &contadorVuelos);
-    //int hardcodearVuelos(eVuelo lista[], int tam, int cant, int* nextIdVuelo );
-    //hardcodearVuelos(vuelos, TAM_VUELOS, 8, &nextIdVuelo, &nextIdAvion, &nextIdDestino);
-
 
     do
     {

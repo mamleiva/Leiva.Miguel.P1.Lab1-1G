@@ -91,28 +91,28 @@ int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int 
                     //Solicitud de Aerolinea
             mostrarAerolineas(aerolineas, tam_aerolinea);
             utn_getNumero(&auxAvion.idAerolinea, "Ingrese ID Aerolinea: ",
-                          "\nError, reingrese ID Aerolinea: ", 1, INT_MAX, 10);
+                          "\nError! reingrese ID Aerolinea: ", 1, INT_MAX, 10);
 
                     //Validacion de Aerolinea
             while (!validarIdAerolineas(auxAvion.idAerolinea, aerolineas, tam_aerolinea))
             {
-                utn_getNumero(&auxAvion.idAerolinea, "Error. Id Aerolinea invalido, reingrese: ",
+                utn_getNumero(&auxAvion.idAerolinea, "Error! Id Aerolinea invalido, reingrese: ",
                               "\nError, reingrese ID Aerolinea: ", 1, INT_MAX, 10);
             }
 
                     //Solicitud de  tipo de avion
             mostrarTipos(tipos, tam_tipos);
-            utn_getNumero(&auxAvion.idTipo, "Ingrese ID de Tipo de Avion: ", "\nError, reingrese ID Tipo: ", 1, INT_MAX, 10);
+            utn_getNumero(&auxAvion.idTipo, "Ingrese ID de Tipo de Avion: ", "\nError! reingrese ID Tipo: ", 1, INT_MAX, 10);
 
                     //validacion de  tipo de avion
             while (!validarIdTipos(auxAvion.idTipo, tipos, tam_tipos))
             {
-                utn_getNumero(&auxAvion.idTipo, "Error. Id Tipo invalido, reingrese: ",
-                              "\nError, reingrese ID Tipo: ", 1, INT_MAX, 10);
+                utn_getNumero(&auxAvion.idTipo, "Error! Id Tipo invalido, reingrese: ",
+                              "\nError! reingrese ID Tipo: ", 1, INT_MAX, 10);
             }
 
                 //Solicitud de Capacidad
-            utn_getNumero(&auxAvion.capacidad, "Ingrese cantidad pasajeros (entre 10 y 300): ", "\nError, reingrese cantidad pasajeros (entre 10 y 300): ", 10, 300, 10);
+            utn_getNumero(&auxAvion.capacidad, "Ingrese cantidad pasajeros (entre 10 y 200): ", "\nError! reingrese cantidad pasajeros (entre 10 y 200): ", 10, 200, 10);
             //validacion de capacidad incluida en la funcion utn_getNumero
             //ya que pide ingresar un numero entre 10 y 300
 
@@ -258,7 +258,7 @@ int bajaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int 
 
         //pido id
         utn_getNumero(&auxId, "Ingrese ID del avion a ELIMINAR: ",
-                      "\nError, ID invalido, reingrese ID del avion a ELIMINAR: ",
+                      "\nError! ID invalido, reingrese ID del avion a ELIMINAR: ",
                       INT_MIN, INT_MAX, 9);
 
         //busco que el id exista
@@ -307,22 +307,21 @@ int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[],
             && tipos != NULL && tam_tipos > 0)
     {
 
-        printf("    *** Modificar Aviones ***\n");
+        printf("    #### Modificar Aviones ####\n");
         printf("-----------------------------\n");
 
-        //muestro aviones
+            // MUESTRO AVIONES
         mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos);
 
-        //pido id
-        utn_getNumero(&auxId, "Ingrese ID del avion a MODIFICAR: ", "\nError, ID invalido, reingrese ID del avion a MODIFICAR: ", INT_MIN, INT_MAX, 10);
+            //SOLICITUD DE ID
+        utn_getNumero(&auxId, "Ingrese ID del avion a MODIFICAR: ", "\nError! ID invalido, reingrese ID del avion a MODIFICAR: ", INT_MIN, INT_MAX, 10);
 
-        //busco que el id exista
+            //VALIDACION DE ID
         index = buscarAvionId(aviones, tam_aviones, auxId);
 
-        //elimino o no segun corresponda
         if (index == -1)
         {
-            printf("El id ingresado no existe.\n");
+            printf("Error! El id que ingreso no existe!\n");
         }
         else
         {
@@ -334,15 +333,15 @@ int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[],
                 switch (opcionModificacion)
                 {
                 case 'a':
-                    //muestro y pido tipo
+                        //MUESTRA Y SOLICITA EL TIPO
                     mostrarTipos(tipos, tam_tipos);
-                    utn_getNumero(&auxTipo, "Ingrese ID Tipo: ", "\nError, reingrese un ID Tipo valido: ", INT_MIN, INT_MAX, 10);
+                    utn_getNumero(&auxTipo, "Ingrese ID Tipo: ", "\nError! reingrese un ID Tipo valido: ", INT_MIN, INT_MAX, 10);
 
 
-                    //valido tipo
+                        //VALIDACION
                     while (!validarIdTipos(auxTipo, tipos, tam_tipos))
                     {
-                        utn_getNumero(&auxTipo, "Ingrese ID Tipo: ", "\nError, reingrese un ID Tipo valido: ", INT_MIN, INT_MAX, 10);
+                        utn_getNumero(&auxTipo, "Ingrese ID Tipo: ", "\nError! reingrese un ID Tipo valido: ", INT_MIN, INT_MAX, 10);
                     }
 
                     aviones[index].idTipo = auxTipo;
@@ -351,26 +350,22 @@ int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[],
 
                     break;
                 case 'b':
-                    //pido y valido modif capacidad
-                    utn_getNumero(&auxCapacidad, "Ingrese nueva Capacidad(entre 10 y 300): ", "\nError, reingrese una capacidad valida (entre 10 y 300): ", 10, 300, 10);
+                        //SOLICITA Y VALIDA CAPACIDAD
+                    utn_getNumero(&auxCapacidad, "Ingrese la nueva Capacidad(entre 10 y 200): ", "\nError! reingrese una capacidad valida (entre 10 y 200): ", 10, 200, 10);
 
-                    //modifico
+                        //COPIO LA MODIFICACION
                     aviones[index].capacidad = auxCapacidad;
 
                     todoOk = 1;
 
                     break;
                 case 'c':
-                    printf("Esta seguro que desea salir? (s/n): ");
-                    fflush(stdin);
-                    scanf("%c", &deseaSalir);
-                    deseaSalir = tolower(deseaSalir);
+                    utn_pedirCaracter(&deseaSalir, "Confirma que desea salir? \"s\" para si, \"n\" para no. ", "Error! ", 's', 'n');
 
                     if (deseaSalir == 's')
                     {
                         seguir = 'n';
                     }
-                    //exit
                     break;
                 default:
                     printf("Opcion invalida!\n");
