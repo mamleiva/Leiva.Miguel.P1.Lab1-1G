@@ -193,7 +193,7 @@ int mostrarVuelos(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_avi
  *
  */
 
-int validarFechas(eVuelo* auxVuelo)
+int validarFechas(eVuelo* vuelo)
 {
     int retorno = -1;
     eVuelo auxFecha; //vector donde se guardara despues de validar, es eVuelo.
@@ -216,9 +216,9 @@ int validarFechas(eVuelo* auxVuelo)
                         auxFecha.fecha.mes==5 || auxFecha.fecha.mes==7 || auxFecha.fecha.mes==8 || auxFecha.fecha.mes==10 || auxFecha.fecha.mes==12))
                 {
                     printf("la fecha es valida.\n");
-                    auxVuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
-                    auxVuelo->fecha.mes = auxFecha.fecha.mes;
-                    auxVuelo->fecha.anio = auxFecha.fecha.anio;
+                    vuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
+                    vuelo->fecha.mes = auxFecha.fecha.mes;
+                    vuelo->fecha.anio = auxFecha.fecha.anio;
                     retorno = 1;
                 }
 
@@ -226,27 +226,27 @@ int validarFechas(eVuelo* auxVuelo)
                         || auxFecha.fecha.mes==9 || auxFecha.fecha.mes==11))
                 {
                     printf("la fecha es valida.\n");
-                    auxVuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
-                    auxVuelo->fecha.mes = auxFecha.fecha.mes;
-                    auxVuelo->fecha.anio = auxFecha.fecha.anio;
+                    vuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
+                    vuelo->fecha.mes = auxFecha.fecha.mes;
+                    vuelo->fecha.anio = auxFecha.fecha.anio;
                     retorno = 1;
                 }
 
                 else if((auxFecha.fecha.dia>=1 && auxFecha.fecha.dia<=28) && (auxFecha.fecha.mes==2))
                 {
                     printf("la fecha es valida.\n");
-                    auxVuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
-                    auxVuelo->fecha.mes = auxFecha.fecha.mes;
-                    auxVuelo->fecha.anio = auxFecha.fecha.anio;
+                    vuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
+                    vuelo->fecha.mes = auxFecha.fecha.mes;
+                    vuelo->fecha.anio = auxFecha.fecha.anio;
                     retorno = 1;
                 }
 
                 else if(auxFecha.fecha.dia==29 && auxFecha.fecha.mes==2 && (auxFecha.fecha.anio%400==0 ||(auxFecha.fecha.anio%4==0 && auxFecha.fecha.anio%100!=0)))
                 {
                     printf("la fecha es valida.\n");
-                    auxVuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
-                    auxVuelo->fecha.mes = auxFecha.fecha.mes;
-                    auxVuelo->fecha.anio = auxFecha.fecha.anio;
+                    vuelo->fecha.dia = auxFecha.fecha.dia; //despues de validar lo copio.
+                    vuelo->fecha.mes = auxFecha.fecha.mes;
+                    vuelo->fecha.anio = auxFecha.fecha.anio;
                     retorno = 1;
 
                 }

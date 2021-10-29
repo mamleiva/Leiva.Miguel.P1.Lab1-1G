@@ -31,6 +31,6 @@ void mostrarVuelo(eVuelo unVuelo, eAvion aviones[], int tam_aviones, eDestino de
 
 //eVuelo auxVuelo; //esta struct tiene agregada la struc fecha
 //validarFechas(&auxVuelo); //llamada
-int validarFechas(eVuelo* vecConFecha);
+int validarFechas(eVuelo* vuelo);
 
 #endif // VUELO_H_INCLUDED
