@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1635530635 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\main.c
+1635553472 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -20,10 +20,10 @@
 	<string.h>
 	<ctype.h>
 
-1635523292 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\inputs.c
+1635544274 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\inputs.c
 	"inputs.h"
 
-1635518216 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\inputs.h
+1635542880 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\inputs.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -54,16 +54,17 @@
 1635452883 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\fecha.h
 	"biblioteca_utn.h"
 
-1635536056 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.c
+1635553087 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.c
 	"avion.h"
 	"inputs.h"
 	"biblioteca_utn.h"
 
-1635518237 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.h
+1635553731 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\avion.h
 	"aerolinea.h"
 	"tipo.h"
 	"biblioteca_utn.h"
 	"inputs.h"
+	"piloto.h"
 
 1635518227 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\biblioteca_utn.h
 	<stdio.h>
@@ -75,24 +76,32 @@
 	"inputs.h"
 	"hardcodeo.h"
 
-1635529684 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\vuelo.c
+1635553425 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\vuelo.c
 	"vuelo.h"
 
-1635529679 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\vuelo.h
+1635553322 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\vuelo.h
 	"fecha.h"
 	"avion.h"
 	"aerolinea.h"
 	"tipo.h"
 	"inputs.h"
 	"destino.h"
+	"piloto.h"
 	"biblioteca_utn.h"
 
-1635384639 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\datawarehouse.c
+1635551688 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\datawarehouse.c
 	<string.h>
 	"dataWarehouse.h"
 	"vuelo.h"
 	"avion.h"
+	"piloto.h"
 
-1635515111 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\datawarehouse.h
+1635550957 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\datawarehouse.h
 	"vuelo.h"
+
+1635553853 c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\piloto.h
+	"biblioteca_utn.h"
+
+1635550114 source:c:\users\martinl\documents\utn\1er-cutrimestre\programacion\codigo\codeblocks\parcial-1-g_leiva_miguel\parcial_1-g_leiva_miguel\piloto.c
+	"piloto.h"
 

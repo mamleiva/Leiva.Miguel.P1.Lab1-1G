@@ -7,6 +7,7 @@
 #include "inputs.h"
 
 
+
 //####################################### MENUS ##############################################
 
 /** \brief MENU PRINCIPAL CON LAS OPCIONES.
@@ -30,13 +31,14 @@ char menu()
     printf("   F- Listar los Tipos de Aviones\n");
     printf("   G- Listar los Destinos\n");
     printf("   H- Alta de Vuelo\n");
+    printf("   J- Listado ordenados por descripcion y id\n");
     printf("   I- Listar los Vuelos\n");
     printf("   X- Salir\n");
 
     utn_getCaracteres(&opcion, "Ingrese Opcion: ", "\nError!, ingrese opcion deseada: ", 'A', 'z', 10);
     opcion = toupper(opcion);
     while (opcion != 'A' && opcion != 'B' && opcion != 'C' &&  opcion != 'D' &&  opcion != 'E' &&  opcion != 'F' &&
-			opcion != 'G' &&  opcion != 'H' &&  opcion != 'I' &&  opcion != 'X' )
+			opcion != 'G' &&  opcion != 'H' &&  opcion != 'I' && opcion != 'J' && opcion != 'X' )
 			{
 			    utn_getCaracteres(&opcion, "Error! Ingrese Opcion: ", "\n\nError! reingrese Opcion:: ", 'A', 'z', 10);
 			}
@@ -60,7 +62,6 @@ char menuModificacion(){
 	printf("B- Capacidad \n");
 	printf("C- Salir \n");
 
-	fflush(stdin);
 	utn_getCaracteres(&opcion, "Ingrese Opcion a MODIFICAR: ", "\nError!, ingrese opcion a MODIFICAR: ", 'A', 'z', 10);
 	opcion = tolower(opcion);
 
@@ -72,3 +73,4 @@ char menuModificacion(){
 	return opcion;
 
 }
+

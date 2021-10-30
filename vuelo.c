@@ -59,14 +59,13 @@ int buscarVuelosLibres(eVuelo vuelos[], int tam){
  * \return "1" si salio ok, "0" si fallo.
  *
  */
-int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones,
-			eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas,
-			eTipo tipos[], int tam_tipos, int* pId){
+int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones, eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos, int* pId, ePiloto pilotos[], int tam_pilotos)
+{
 	int todoOk = 0;
 	int index;
 	eVuelo auxVuelo;
 
-	if (vuelos != NULL && tam_vuelos > 0 && aviones != NULL && tam_aviones > 0 && destinos != NULL && tam_destinos > 0){
+	if (vuelos != NULL && tam_vuelos > 0 && aviones != NULL && tam_aviones > 0 && destinos != NULL && tam_destinos > 0 && pilotos != NULL && tam_pilotos >0){
 
 		index = buscarVuelosLibres(vuelos, tam_vuelos);
 
@@ -78,7 +77,7 @@ int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones
 			(*pId)++;
 
                 //MUESTRA LOS AVIONES
-			mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos);
+			mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos, pilotos, tam_pilotos);
 			//pido id aviones
 			utn_getNumero(&auxVuelo.idAvion, "Ingrese ID Avion: ",
 								"\nError! reingrese ID Avion: ", INT_MIN, INT_MAX, 9);
@@ -109,6 +108,9 @@ int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones
 		}
 	}
 	return todoOk;
+
+
+
 }
 
 /** \brief Muestra el vuelo

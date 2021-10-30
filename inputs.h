@@ -18,4 +18,5 @@
 char menu();
 char menuModificacion();
 
+
 #endif // INPUTS_H_INCLUDED

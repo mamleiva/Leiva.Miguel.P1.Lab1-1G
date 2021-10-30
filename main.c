@@ -14,6 +14,7 @@
 #define TAM_AVIONES 50//8
 #define TAM_DESTINOS 4
 #define TAM_VUELOS 600
+#define TAM_PILOTOS 30
 
 int main()
 {
@@ -21,12 +22,14 @@ int main()
     char confirmaSalir;
     int nextIdAvion= 3000;
     int nextIdVuelo = 2000;
+    int nextIdPiloto = 8000;
     //int nextIdAerolinea = 1000;
     //int nextIdDestino = 20000;
     //int nextIdTipo = 5000;
 
     int contadorAviones = 0;
     int contadorVuelos = 0;
+    int contadorPilotos = 0;
 
     eAerolinea aerolineas[TAM_AEROLINEA] =
     {
@@ -63,6 +66,7 @@ int main()
     };
 
     eVuelo vuelos[TAM_VUELOS];
+    ePiloto pilotos[TAM_PILOTOS];
 
     if(!inicializarAviones(aviones, TAM_AVIONES))
     {
@@ -73,16 +77,22 @@ int main()
         printf("Ocurrio un problema al inicializar vuelos");
     }
 
+    if(!inicializarPilotos(pilotos, TAM_PILOTOS))
+    {
+        printf("Ocurrio un problema al inicializar pilotos");
+    }
+
     //HARDCODEO
     hardcodearAvion(aviones, TAM_AVIONES, 8, &nextIdAvion, &contadorAviones );
     hardcodearVuelos(vuelos, TAM_VUELOS, 8, &nextIdVuelo, &contadorVuelos);
+    hardcodearPilotos(pilotos, TAM_PILOTOS, 8, &nextIdPiloto, &contadorPilotos);
 
     do
     {
         switch(menu())
         {
         case 'A': //ALTA DE AVIONES
-            if(!altaAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, &nextIdAvion))
+            if(!altaAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, &nextIdAvion, pilotos, TAM_PILOTOS, &nextIdPiloto))
             {
                 printf("Hubo un problema al realizar el alta del avion\n");
             }
@@ -90,13 +100,14 @@ int main()
             {
                 printf("Alta Exitosa de avion!!!\n");
                 contadorAviones++;
+                contadorPilotos++;
             }
             break;
         case 'B': //BAJA DE AVIONES
             if (contadorAviones > 0)
             {
                 system("cls");
-                if (!bajaAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS))
+                if (!bajaAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, pilotos,TAM_PILOTOS))
                 {
                     printf("No se pudo dar de baja el avion\n");
                 }
@@ -115,7 +126,7 @@ int main()
             if (contadorAviones > 0)
             {
                 system("cls");
-                if (!modificarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS))
+                if (!modificarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, pilotos, TAM_PILOTOS))
                 {
                     printf("No se pudo modificar el avion\n");
                 }
@@ -135,7 +146,7 @@ int main()
             if (contadorAviones > 0)
             {
                 if (!mostrarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos,
-                                    TAM_TIPOS))
+                                    TAM_TIPOS, pilotos, TAM_PILOTOS))
                 {
                     printf("No se pudieron mostrar los aviones\n");
                 }
@@ -172,7 +183,8 @@ int main()
             system("cls");
             if (contadorAviones > 0)
             {
-                if (!altaVuelo(vuelos, TAM_VUELOS, aviones, TAM_AVIONES, destinos, TAM_DESTINOS, aerolineas, TAM_AVIONES, tipos, TAM_TIPOS, &nextIdVuelo))
+                //int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones,eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas,eTipo tipos[], int tam_tipos, int* pId, ePiloto pilotos[],int tam_pilotos, int* idPiloto);
+                if (!altaVuelo(vuelos, TAM_VUELOS, aviones, TAM_AVIONES, destinos, TAM_DESTINOS, aerolineas, TAM_AVIONES, tipos, TAM_TIPOS, &nextIdVuelo, pilotos, TAM_PILOTOS))
                 {
                     printf("No se pudo dar de alta un nuevo vuelo\n");
                 }
@@ -198,6 +210,20 @@ int main()
             }
 
             break;
+        case 'J':// LISTADO DE ORDENAMIENTO
+            //system("cls");
+            if (contadorVuelos > 0)
+            {
+               ordenarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA);
+               mostrarAviones(aviones, TAM_AVIONES, aerolineas, TAM_AEROLINEA, tipos, TAM_TIPOS, pilotos, TAM_PILOTOS);
+            }
+            else
+            {
+                printf("Primero debe dar de alta algun vuelo\n");
+            }
+
+            break;
+
         case 'X':  //SALIR
             utn_pedirCaracter(&confirmaSalir, "Confirma que desea salir? \"s\" para si, \"n\" para no. ", "Error! ", 's', 'n');
             if(confirmaSalir == 's')

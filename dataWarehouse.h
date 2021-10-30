@@ -7,5 +7,6 @@
 
 int hardcodearVuelos(eVuelo lista[], int tam, int cant, int* nextIdVuelo, int* contadorVuelos);
 int hardcodearAvion(eAvion lista[], int tam, int cant, int* pIdAvion, int* contadorAviones);
+int hardcodearPilotos(ePiloto lista[], int tam, int cant, int* nextIdPiloto, int* contadorPilotos);
 
 #endif // DATAWAREHOUSE_H_INCLUDED

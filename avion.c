@@ -2,6 +2,9 @@
 #include "inputs.h"
 #include "biblioteca_utn.h"
 
+
+
+
 /** \brief inicializa los aviones
  *
  * \param tipo struct vector de aviones
@@ -62,14 +65,15 @@ int buscarLibreAviones(eAvion aviones[], int tam_aviones)
  * \return "1" si salio ok, "0" si fallo.
  *
  */
-int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolinea, eTipo tipos[], int tam_tipos, int *pId)
+//int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolinea, eTipo tipos[], int tam_tipos, int *pId, ePiloto pilotos[],int tam_pilotos)
+int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolinea, eTipo tipos[], int tam_tipos, int *pId, ePiloto pilotos[],int tam_pilotos, int* pidPiloto)
 {
     int todoOk = 0;
     int index;
     eAvion auxAvion;
 
     if (aviones != NULL && tam_aviones > 0 && aerolineas != NULL && tam_aerolinea > 0
-            && tipos != NULL && tam_tipos > 0)
+            && tipos != NULL && tam_tipos > 0 && tam_pilotos > 0 && pilotos != NULL && pidPiloto != NULL)
     {
 
         index = buscarLibreAviones(aviones, tam_aviones);
@@ -111,6 +115,10 @@ int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int 
                               "\nError! reingrese ID Tipo: ", 1, INT_MAX, 10);
             }
 
+                //alta de piloto###################################################################
+            altaPiloto(pilotos, tam_pilotos, pidPiloto);
+
+
                 //Solicitud de Capacidad
             utn_getNumero(&auxAvion.capacidad, "Ingrese cantidad pasajeros (entre 10 y 200): ", "\nError! reingrese cantidad pasajeros (entre 10 y 200): ", 10, 200, 10);
             //validacion de capacidad incluida en la funcion utn_getNumero
@@ -139,7 +147,7 @@ int altaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int 
  * \return VOID no devuelve nada
  *
  */
-void mostrarAvion(eAvion unAvion, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos)
+void mostrarAvion(eAvion unAvion, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos,ePiloto piloto )
 {
 
     char descripcionAerolinea[20];
@@ -149,7 +157,7 @@ void mostrarAvion(eAvion unAvion, eAerolinea aerolineas[], int tam_aerolineas, e
     cargarDescTipos(tipos, tam_tipos, unAvion.idTipo, descripcionTipo);
 
 
-    printf("%d       %11s      %10s        %d \n", unAvion.idAvion, descripcionAerolinea, descripcionTipo, unAvion.capacidad);
+    printf("%d       %11s      %10s        %d         %d\n", unAvion.idAvion, descripcionAerolinea, descripcionTipo, unAvion.capacidad, piloto.idPiloto);
 
 }
 
@@ -164,30 +172,30 @@ void mostrarAvion(eAvion unAvion, eAerolinea aerolineas[], int tam_aerolineas, e
  * \return "1" si salio ok, "0" si fallo.
  *
  */
-int mostrarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos)
+int mostrarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos, ePiloto pilotos[], int tam_pilotos)
 {
     int todoOk = 0;
     int flag = 1;
 
     if (aviones != NULL && tam_aviones > 0 && aerolineas != NULL && tam_aerolineas > 0
-            && tipos != NULL && tam_tipos > 0)
+            && tipos != NULL && tam_tipos > 0 && pilotos != NULL && tam_pilotos > 0)
     {
 
         todoOk = 1;
 
-        printf("#############   Listado de Aviones ###################\n");
-        printf("------------------------------------------------------\n");
-        printf("  ID         Aerolinea            Tipo    Capacidad\n");
-        printf("------------------------------------------------------\n");
+        printf("#####################   Listado de Aviones ###################\n");
+        printf("----------------------------------------------------------------\n");
+        printf("  ID         Aerolinea            Tipo    Capacidad     idPiloto\n");
+        printf("-----------------------------------------------------------------\n");
 
         //ordenar aviones antes de mostrar
-        ordenarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas);
+        //ordenarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas);
 
         for (int i = 0; i < tam_aviones; i++)
         {
             if (aviones[i].isEmpty == FALSO)
             {
-                mostrarAvion(aviones[i], aerolineas, tam_aerolineas, tipos, tam_tipos);
+                mostrarAvion(aviones[i], aerolineas, tam_aerolineas, tipos, tam_tipos, pilotos[i]);
                 flag = 0;
             }
         }
@@ -240,31 +248,30 @@ int buscarAvionId(eAvion aviones[], int tam_aviones, int idRecibido)
  *
  */
 int bajaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolineas,
-                eTipo tipos[], int tam_tipos)
+                eTipo tipos[], int tam_tipos, ePiloto pilotos[], int tam_pilotos)
 {
     int todoOk = 0;
     int auxId;
     int index;
 
     if (aviones != NULL && tam_aviones > 0 && aerolineas != NULL && tam_aerolineas > 0
-            && tipos != NULL && tam_tipos > 0)
+            && tipos != NULL && tam_tipos > 0 && pilotos != NULL && tam_pilotos > 0)
     {
 
         printf("    *** Baja Aviones ***\n");
         printf("--------------------------\n");
 
-        //muestro
-        mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos);
+            //Muestro los aviones
+        mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos, pilotos, tam_pilotos);
 
-        //pido id
+            //SOLICITO ID
         utn_getNumero(&auxId, "Ingrese ID del avion a ELIMINAR: ",
                       "\nError! ID invalido, reingrese ID del avion a ELIMINAR: ",
                       INT_MIN, INT_MAX, 9);
 
-        //busco que el id exista
+            //VALIDO EL ID
         index = buscarAvionId(aviones, tam_aviones, auxId);
 
-        //elimino o no segun corresponda
         if (index == -1)
         {
             printf("El id ingresado no existe.\n");
@@ -292,7 +299,7 @@ int bajaAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int 
  * \return "1" si salio ok, "0" si fallo.
  *
  */
-int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos)
+int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos, ePiloto pilotos[],int tam_pilotos)
 {
     int todoOk = 0;
     int auxId;
@@ -304,14 +311,14 @@ int modificarAviones(eAvion aviones[], int tam_aviones, eAerolinea aerolineas[],
     char seguir = 's';
 
     if (aviones != NULL && tam_aviones > 0 && aerolineas != NULL && tam_aerolineas > 0
-            && tipos != NULL && tam_tipos > 0)
+            && tipos != NULL && tam_tipos > 0 && pilotos != NULL && tam_pilotos > 0 )
     {
 
         printf("    #### Modificar Aviones ####\n");
         printf("-----------------------------\n");
 
             // MUESTRO AVIONES
-        mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos);
+        mostrarAviones(aviones, tam_aviones, aerolineas, tam_aerolineas, tipos, tam_tipos,  pilotos, tam_pilotos);
 
             //SOLICITUD DE ID
         utn_getNumero(&auxId, "Ingrese ID del avion a MODIFICAR: ", "\nError! ID invalido, reingrese ID del avion a MODIFICAR: ", INT_MIN, INT_MAX, 10);
@@ -451,7 +458,6 @@ int cargarDescripcionAvion(eAvion aviones[], int tam_aviones, char descripcion[]
     }
     return todoOk;
 }
-
 
 
 

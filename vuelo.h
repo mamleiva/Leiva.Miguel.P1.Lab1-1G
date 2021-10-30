@@ -4,6 +4,7 @@
 #include "tipo.h"
 #include "inputs.h"
 #include "destino.h"
+#include "piloto.h"
 #include "biblioteca_utn.h"
 
 #define VACIO 1
@@ -25,7 +26,7 @@ typedef struct
 
 int iniciarVuelos(eVuelo vuelos[], int tam);
 int buscarVuelosLibres(eVuelo vuelos[], int tam);
-int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones, eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos, int* pId);
+int altaVuelo(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones, eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas, eTipo tipos[], int tam_tipos, int* pId, ePiloto pilotos[], int tam_pilotos);
 int mostrarVuelos(eVuelo vuelos[], int tam_vuelos, eAvion aviones[], int tam_aviones, eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas);
 void mostrarVuelo(eVuelo unVuelo, eAvion aviones[], int tam_aviones, eDestino destinos[], int tam_destinos, eAerolinea aerolineas[], int tam_aerolineas);
 

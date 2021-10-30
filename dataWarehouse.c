@@ -2,6 +2,7 @@
 #include "dataWarehouse.h"
 #include "vuelo.h"
 #include "avion.h"
+#include "piloto.h"
 
 /*
 typedef struct
@@ -41,6 +42,22 @@ int capacidad[10]= { 120, 10, 140, 200, 30, 250, 270, 54, 100, 120 };
 int idAerolinea[10]= { 1000, 1001, 1002, 1004, 1003, 1002, 1004, 1003, 1002, 1000 };
 int idAvion[10]= { 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010 };
 int idDestino[10]= { 20000, 20000, 20002, 20001, 20003, 20002, 20001, 20003, 20002, 20000 };
+
+int edadPiloto[10]= {20, 30, 24, 45, 46, 47, 48, 35, 48, 29};
+char nombres[10][20] ={
+//char nombres[10][20] = {
+    "Juan",
+    "Pedro",
+    "Sofia",
+    "Miguel",
+    "Valentina",
+    "Camila",
+    "Andrea",
+    "Luis",
+    "Diego",
+    "Analia"
+};
+char sexos[10] = {'m', 'm', 'f', 'm', 'f', 'f', 'f', 'm', 'm', 'f'};
 
 
 int hardcodearAvion(eAvion lista[], int tam, int cant, int* pIdAvion, int* contadorAviones){
@@ -90,6 +107,30 @@ int hardcodearVuelos(eVuelo lista[], int tam, int cant, int* nextIdVuelo, int* c
             lista[i].fecha.mes = mes[i];
             lista[i].fecha.anio = anio[i];
             (*contadorVuelos)++;
+            lista[i].isEmpty = 0;
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+int hardcodearPilotos(ePiloto lista[], int tam, int cant, int* nextIdPiloto, int* contadorPilotos)
+{
+    int contador = -1;
+    if(lista != NULL && tam > 0 && cant >= 0 && cant <= tam && nextIdPiloto != NULL && contadorPilotos != NULL)
+    {
+        contador = 0;
+        for(int i=0; i < cant; i++)
+        {
+            lista[i].idPiloto = *nextIdPiloto;
+            //printf("el id del piloto en el harcodeo es: %d",lista[i].idPiloto );
+            //system("pause");
+            (*nextIdPiloto)++;
+            strcpy(lista[i].nombre, nombres[i]);
+            lista[i].sexo = sexos[i];
+            lista[i].edad = edadPiloto[i];
+            (*contadorPilotos)++;
             lista[i].isEmpty = 0;
             contador++;
         }
